@@ -521,11 +521,11 @@ function refreshFbStatus() {
 
 // -------- Constantes --------
 const ALLEES   = ['A','B','C','D','E','F','G','H','I','J','K','L'];
-// Rangées contenant encore des mâles.
-// F, G, H, I, J, K et L restent consultables dans l'app,
-// mais elles sont exclues des calculs globaux et des priorités du matin.
-const ALLEES_AVEC_MALES = ['A','B','C','D','E'];
-const ALLEES_SANS_MALES = ['F','G','H','I','J','K','L'];
+// Rangées contenant des mâles : toutes les allées (A à L) sont remplies
+// et utilisées → toutes comptées dans les calculs globaux et les priorités.
+// Pour exclure une allée plus tard : la retirer de ALLEES_AVEC_MALES.
+const ALLEES_AVEC_MALES = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+const ALLEES_SANS_MALES = ALLEES.filter(a => !ALLEES_AVEC_MALES.includes(a));
 const ALLEES_CALCUL_GLOBAL = ALLEES_AVEC_MALES;
 function compteGlobal(allee) { return ALLEES_CALCUL_GLOBAL.includes(allee); }
 const NB_CAGES = 81;
